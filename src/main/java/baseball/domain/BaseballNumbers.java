@@ -1,11 +1,8 @@
 package baseball.domain;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class BaseballNumbers {
     public static final int BASEBALL_NUMBERS_COUNT = 3;

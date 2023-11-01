@@ -2,24 +2,21 @@ package baseball.view;
 
 import baseball.domain.BaseballNumber;
 import baseball.domain.BaseballNumbers;
+import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static int restartGame() {
-        //System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        return Integer.parseInt(scanner.nextLine());
+        return Integer.parseInt(Console.readLine());
     }
 
     public static BaseballNumbers inputBaseballNumbers() {
         System.out.print("숫자를 입력해주세요 : ");
-        String inputNumbers = scanner.nextLine();
+        String inputNumbers = Console.readLine();
         validationInputNumber(inputNumbers);
 
         return BaseballNumbers.from(Arrays.stream(inputNumbers.split(""))

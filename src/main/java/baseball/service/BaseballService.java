@@ -4,11 +4,10 @@ import baseball.domain.BaseballNumber;
 import baseball.domain.BaseballNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class BaseballService {
     public BaseballNumbers makeBaseballNumbers() {
@@ -23,11 +22,13 @@ public class BaseballService {
     }
 
     private List<Integer> getRandomNumbers() {
-        List<Integer> fullRandomNumbers = IntStream.rangeClosed(BaseballNumber.MIN_BASEBALL_NUMBER, BaseballNumber.MAX_BASEBALL_NUMBER)
-                .boxed()
-                .collect(Collectors.toList());
-        Collections.shuffle(fullRandomNumbers);
-        List<Integer> randomNumbers = fullRandomNumbers.subList(0, BaseballNumbers.BASEBALL_NUMBERS_COUNT);
+        List<Integer> randomNumbers = new ArrayList<>();
+        while (randomNumbers.size() < BaseballNumbers.BASEBALL_NUMBERS_COUNT) {
+            int randomNumber = Randoms.pickNumberInRange(BaseballNumber.MIN_BASEBALL_NUMBER, BaseballNumber.MAX_BASEBALL_NUMBER);
+            if (!randomNumbers.contains(randomNumber)) {
+                randomNumbers.add(randomNumber);
+            }
+        }
         return randomNumbers;
     }
 

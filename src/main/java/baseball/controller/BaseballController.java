@@ -1,11 +1,9 @@
 package baseball.controller;
 
-import baseball.domain.BaseballNumber;
 import baseball.domain.BaseballNumbers;
 import baseball.service.BaseballService;
 import baseball.view.OutputView;
 
-import java.util.List;
 import java.util.Map;
 
 public class BaseballController {
